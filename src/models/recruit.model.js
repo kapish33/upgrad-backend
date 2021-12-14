@@ -6,8 +6,8 @@ const recruitSchema = new Schema(
     dezignation: { type: String, required: true },
     company: { type: String, required: true },
     email: { type: String, required: true },
-    phone_number: { type: Number, required: true },
-    catagory: { type: String, required: true },
+    phone_number: { type: Number, required: true, length: 10 },
+    catagory: [{ type: String, required: true }],
   },
   {
     versionKey: false,
