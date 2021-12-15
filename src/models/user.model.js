@@ -15,6 +15,8 @@ const userSchema = new Schema(
 );
 
 userSchema.pre("save", function (next) {
+  var val = Math.floor(1000 + Math.random() * 9000);
+  // this is for generating random password if needed
   if (!this.isModified("password")) return next();
   bcrypt.hash(this.password, 10, (err, hash) => {
     this.password = hash;
